@@ -1,4 +1,4 @@
-Ryan Tillis - Data Science - R Programming - Quiz 1 - Coursera
+Ryan Tillis - Data Science - R Programming - Quiz 2 - Coursera
 ================
 <a href="http://www.ryantillis.com"> Ryan Tillis </a>
 August 4, 2016
