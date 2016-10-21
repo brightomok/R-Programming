@@ -11,8 +11,6 @@ This is Quiz 1 from Coursera's R Programming class within the <a href="https://w
 <hr>
 <font size="+2">**1.** </font>The R language is a dialect of which of the following programming languages?
 
-And weights given by
-
 <hr>
 -   <font size="+1">**S**</font>
 
