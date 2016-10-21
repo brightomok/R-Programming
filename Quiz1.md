@@ -31,7 +31,7 @@ R is an open source implementation of S with a revised syntax and an awesome com
 
 -   The freedom to prevent users from using the software for undesirable purposes.
 
-</font>
+</b> </font>
 
 <hr>
 ##### Explanation:
@@ -132,7 +132,9 @@ This is nice for statistical purposes.
 
 -   a character vector containing the letter "a".
 
--   a character vector of length 1. </b> </font>
+-   a character vector of length 1.
+
+</b> </font>
 
 <hr>
 ##### Explanation:
@@ -190,9 +192,6 @@ names(dat)
 <font size="+2">**12.** </font> Extract the first 2 rows of the data frame and print them to the console. What does the output look like?
 
 <hr>
-<font size="+1"><b> <b></font>
-
-<hr>
 ##### Explanation:
 
 Index
@@ -224,9 +223,6 @@ nrow(dat)
 
 <hr>
 <font size="+2">**14.** </font> Extract the last 2 rows of the data frame and print them to the console. What does the output look like?
-
-<hr>
--   <font size="+1"> <b> </b></font>
 
 <hr>
 ##### Explanation:
