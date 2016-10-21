@@ -1,0 +1,348 @@
+Ryan Tillis - Data Science - Regression Models - Quiz 1 - Coursera
+================
+<a href="http://www.ryantillis.com"> Ryan Tillis </a>
+August 4, 2016
+
+Quiz 1
+------
+
+This is Quiz 1 from Coursera's R Programming class within the <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Specialization</a>. This publication is intended as a learning resource, all answers are documented and explained. Datasets are available in R packages.
+
+<hr>
+<font size="+2">**1.** </font>The R language is a dialect of which of the following programming languages?
+
+And weights given by
+
+<hr>
+-   <font size="+1">**S**</font>
+
+<hr>
+##### Explanation:
+
+R is an open source implementation of S with a revised syntax and an awesome community.
+
+<hr>
+<font size="+2">**2.** </font> The definition of free software consists of four freedoms (freedoms 0 through 3). Which of the following is NOT one of the freedoms that are part of the definition? Select all that apply.
+
+<hr>
+<font size="+1"><b>
+
+-   The freedom to sell the software for any price.
+
+-   The freedom to restrict access to the source code for the software.
+
+-   The freedom to prevent users from using the software for undesirable purposes.
+
+</font>
+
+<hr>
+##### Explanation:
+
+Yay free software!
+
+``` r
+dat <- read.table('http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/orly_owl_files/orly_owl_Lin_4p_5_flat.txt', header = FALSE)
+fit <- lm(V1 ~ . - 1, data = dat); plot(predict(fit), resid(fit), pch = '.')
+```
+
+![](Quiz1_files/figure-markdown_github/Q2-1.png)
+<hr>
+<font size="+2">3. </font> In R the following are all atomic data types EXCEPT: (Select all that apply)
+
+<hr>
+<font size="+1"> <b>
+
+-   list
+
+-   array
+
+-   matrix
+
+-   data frame
+
+-   table
+
+</b> </font>
+
+<hr>
+##### Explanation:
+
+Predicting with the lower and upper bounds of the confidence intervals
+
+``` r
+fit <- lm(mpg~wt,mtcars)
+summary(fit)$coef
+```
+
+    ##              Estimate Std. Error   t value     Pr(>|t|)
+    ## (Intercept) 37.285126   1.877627 19.857575 8.241799e-19
+    ## wt          -5.344472   0.559101 -9.559044 1.293959e-10
+
+<hr>
+<font size="+2">**4.** </font> If I execute the expression x &lt;- 4 in R, what is the class of the object `x' as determined by the`class()' function?
+
+<hr>
+-   <font size="+1">**numeric **</font>
+
+<hr>
+##### Explanation:
+
+R automatically interprets 4 as a numeric class object.
+
+<hr>
+<font size="+2">5. </font>What is the class of the object defined by the expression x &lt;- c(4, "a", TRUE)?
+
+<hr>
+-   <font size="+1">**character**</font>
+
+<hr>
+##### Explanation:
+
+``` r
+x <- c(4, "a", TRUE)
+class(x)
+```
+
+    ## [1] "character"
+
+<hr>
+<font size="+2">**6.** </font> If I have two vectors x &lt;- c(1,3, 5) and y &lt;- c(3, 2, 10), what is produced by the expression cbind(x, y)?
+<hr>
+-   <font size="+1">**a matrix with 2 columns and 3 rows**</font>
+
+<hr>
+##### Explanation:
+
+Combine the two vectors as columns.
+
+<hr>
+<font size="+2">**7.** </font> A key property of vectors in R is that
+
+<hr>
+-   <font size="+1">**elements of a vector all must be of the same class**</font>
+
+<hr>
+##### Explanation:
+
+This is nice for statistical purposes.
+
+<hr>
+<font size="+2">**8.** </font> Suppose I have a list defined as x &lt;- list(2, "a", "b", TRUE). What does x\[\[2\]\] give me? Select all that apply.
+
+<hr>
+<font size="+1"><b>
+
+-   a character vector containing the letter "a".
+
+-   a character vector of length 1. </b> </font>
+
+<hr>
+##### Explanation:
+
+Two brackets gives the actual element inside of the list, one bracket gives the list with the element inside.
+
+<hr>
+<font size="+2">**9.** </font> Suppose I have a vector x &lt;- 1:4 and a vector y &lt;- 2. What is produced by the expression x + y?
+
+<hr>
+-   <font size="+1">**a numeric vector with elements 3, 4, 5, 6.**</font>
+
+<hr>
+##### Explanation:
+
+<hr>
+<font size="+2">**10.** </font> Suppose I have a vector x &lt;- c(17, 14, 4, 5, 13, 12, 10) and I want to set all elements of this vector that are greater than 10 to be equal to 4. What R code achieves this? Select all that apply.
+
+<hr>
+<font size="+1"><b>
+
+-   x\[x &gt;= 11\] &lt;- 4
+
+-   x\[x &gt; 10\] &lt;- 4
+
+</b> </font>
+
+<hr>
+##### Explanation:
+
+Indexing with a boolean.
+
+<hr>
+<font size="+2">**11.** </font>Use the Week 1 Quiz Data Set to answer questions 11-20.
+
+In the dataset provided for this Quiz, what are the column names of the dataset?
+<hr>
+-   <font size="+1">**Ozone, Solar.R, Wind, Temp, Month, Day**</font>
+
+<hr>
+##### Explanation:
+
+Download, unzip, read, print.
+
+``` r
+dat <- download.file('https://d396qusza40orc.cloudfront.net/rprog/data/quiz1_data.zip', destfile ="quizdat.zip")
+dat <- unzip("quizdat.zip")
+dat <- read.csv("hw1_data.csv")
+names(dat)
+```
+
+    ## [1] "Ozone"   "Solar.R" "Wind"    "Temp"    "Month"   "Day"
+
+<hr>
+<font size="+2">**12.** </font> Extract the first 2 rows of the data frame and print them to the console. What does the output look like?
+
+<hr>
+<font size="+1"><b> <b></font>
+
+<hr>
+##### Explanation:
+
+Index
+
+``` r
+dat[1:2,]
+```
+
+    ##   Ozone Solar.R Wind Temp Month Day
+    ## 1    41     190  7.4   67     5   1
+    ## 2    36     118  8.0   72     5   2
+
+<hr>
+<font size="+2">13.</font> How many observations (i.e. rows) are in this data frame?
+
+<hr>
+-   <font size="+1">**153**</font>
+
+<hr>
+##### Explanation:
+
+Nrow()
+
+``` r
+nrow(dat)
+```
+
+    ## [1] 153
+
+<hr>
+<font size="+2">**14.** </font> Extract the last 2 rows of the data frame and print them to the console. What does the output look like?
+
+<hr>
+-   <font size="+1"> <b> </b></font>
+
+<hr>
+##### Explanation:
+
+Correlation(XY)\* SDy/SDx
+
+``` r
+dat[152:153,]
+```
+
+    ##     Ozone Solar.R Wind Temp Month Day
+    ## 152    18     131  8.0   76     9  29
+    ## 153    20     223 11.5   68     9  30
+
+<hr>
+<font size="+2">15.</font>What is the value of Ozone in the 47th row?
+
+<hr>
+-   <font size="+1">**21**</font>
+
+<hr>
+##### Explanation:
+
+$ notation is useful
+
+``` r
+dat$Ozone[47]
+```
+
+    ## [1] 21
+
+<hr>
+<font size="+2">**16.** </font> How many missing values are in the Ozone column of this data frame?
+<hr>
+-   <font size="+1">**37**</font>
+
+<hr>
+##### Explanation:
+
+Is NA return T/F values which can be summed to get a count of NAs.
+
+``` r
+sum(is.na(dat$Ozone))
+```
+
+    ## [1] 37
+
+<hr>
+<font size="+2">**17.** </font> What is the mean of the Ozone column in this dataset? Exclude missing values (coded as NA) from this calculation.
+<hr>
+-   <font size="+1">**42.1**</font>
+
+<hr>
+##### Explanation:
+
+na.rm is a great option for calculation where NAs might interfere
+
+``` r
+mean(dat$Ozone, na.rm=TRUE)
+```
+
+    ## [1] 42.12931
+
+<hr>
+<font size="+2">**18.** </font> Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90. What is the mean of Solar.R in this subset?
+
+<hr>
+-   <font size="+1">**212.8**</font>
+
+<hr>
+##### Explanation:
+
+Which give index of booleans, $ selects columns.
+
+``` r
+mean(dat[which(dat$Ozone >31 & dat$Temp > 90),]$Solar.R)
+```
+
+    ## [1] 212.8
+
+<hr>
+<font size="+2">**19.** </font> What is the mean of "Temp" when "Month" is equal to 6?
+
+<hr>
+-   <font size="+1">**79.1**</font>
+
+<hr>
+##### Explanation:
+
+Same as above
+
+``` r
+mean(dat[which(dat$Month == 6),]$Temp)
+```
+
+    ## [1] 79.1
+
+<hr>
+<font size="+2">**20.** </font> Let the slope having fit Y as the outcome and X as the predictor be denoted as β1. Let the slope from fitting X as the outcome and Y as the predictor be denoted as γ1. Suppose that you divide β1 by γ1; in other words consider β1/γ1. What is this ratio always equal to?
+
+<hr>
+-   <font size="+1">**115**</font>
+
+<hr>
+##### Explanation:
+
+Need to remove NA for this.
+
+``` r
+max(dat[which(dat$Month == 5),]$Ozone, na.rm = TRUE)
+```
+
+    ## [1] 115
+
+<hr>
+Check out my website at: <http://www.ryantillis.com/>
+<hr>
