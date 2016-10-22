@@ -2,7 +2,7 @@
 title: "Ryan Tillis - R Programming - Data Science - Quiz 3 - Coursera"
 author: <a href="http://www.ryantillis.com"> Ryan Tillis </a>
 date: "June 15, 2016"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Programming Quiz 3
 
-This is Quiz 3 from the Data Scientist's toolbox course within the Data Science Specialization. 
+This is Quiz 3 from the Data Scientist's toolbox course within the Data Science Specialization. This publication is intended as a learning resource, all answers are documented and explained.
 
 ###Questions
 <hr>
@@ -43,6 +43,8 @@ There will be an object called 'iris' in your workspace. In this dataset, what i
 <hr>
 
 #####Explanation:
+
+Self-explanatory
 
 The which function creates an index for virginica species, the $ operator singles out the Sepal.Length column, then the mean and round function do the rest.
 
