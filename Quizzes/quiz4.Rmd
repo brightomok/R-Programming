@@ -1,176 +1,216 @@
 ---
-title: "Ryan Tillis - R Programming - Data Science - Quiz 3 - Coursera"
+title: "Ryan Tillis - R Programming - Data Science - Quiz 4 - Coursera"
 author: <a href="http://www.ryantillis.com"> Ryan Tillis </a>
 date: "June 15, 2016"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Programming Quiz 3
+## R Programming Quiz 4
 
-This is Quiz 3 from the Data Scientist's toolbox course within the Data Science Specialization. This publication is intended as a learning resource, all answers are documented and explained.
+This is Quiz 4 from the R Programming course within the Data Science Specialization. 
 
 ###Questions
 <hr>
-<font size="+2">1.  </font> Take a look at the 'iris' dataset that comes with R. The data can be loaded with the code:
+<font size="+2">1.  </font> What is produced at the end of this snippet of R code?
 
 ```{r q1a}
-library(datasets)
-data(iris)
+set.seed(1)
+rpois(5, 2)
 ```
-
-A description of the dataset can be found by running
-
-```{r q1b}
-?iris
-```
-
-There will be an object called 'iris' in your workspace. In this dataset, what is the mean of 'Sepal.Length' for the species virginica? Please round your answer to the nearest whole number.
-
-(Only enter the numeric result and nothing else.)
 
 <hr>
 
 <font size="+1">
+<b>
 
-* 7
+* A vector with the numbers 1, 1, 2, 4, 1
 
+</b>
 </font>
 
 <hr>
-
-#####Explanation:
-
-Self-explanatory
-
-The which function creates an index for virginica species, the $ operator singles out the Sepal.Length column, then the mean and round function do the rest.
 
 ```{r Question 1}
-round(mean(iris[which(iris$Species == "virginica"),]$Sepal.Length))
+set.seed(1)
+rpois(5, 2)
 ```
 
 <hr>
 
-<font size="+2">2.  </font> Continuing with the 'iris' dataset from the previous Question, what R code returns a vector of the means of the variables 'Sepal.Length', 'Sepal.Width', 'Petal.Length', and 'Petal.Width'?
+<font size="+2">2.  </font> What R function can be used to generate standard Normal random variables?
 
 <hr>
 
 <font size="+1">
+<b>
 
-* apply(iris[, 1:4], 2, mean)
+* rnorm
 
+</b>
 </font>
 
 <hr>
 
-#####Explanation:
-
-Using Apply to aggregate column means
 
 ```{r Question 2}
-apply(iris[, 1:4], 2, mean)
+rnorm(10, 0, 1)
 ```
 
 <hr>
 
-<font size="+2">3.  </font> Load the 'mtcars' dataset in R with the following code
-
-```{r q2a}
-library(datasets)
-data(mtcars)
-```
-
-There will be an object names 'mtcars' in your workspace. You can find some information about the dataset by running
-
-```{r q2b}
-?iris
-```
-
-How can one calculate the average miles per gallon (mpg) by number of cylinders in the car (cyl)? Select all that apply.
+<font size="+2">3.  </font> When simulating data, why is using the set.seed() function important? Select all that apply.
 
 <hr>
 
 <font size="+1">
+<b>
 
-* with(mtcars, tapply(mpg, cyl, mean))
+* It ensures that the sequence of random numbers starts in a specific place and is therefore reproducible.
 
-* sapply(split(mtcars$mpg, mtcars$cyl), mean)
-
-* tapply(mtcars$mpg, mtcars$cyl, mean)
-
+</b>
 </font>
 
 <hr>
 
 #####Explanation:
 
-Different strokes
+Set.seed allows other to get the same psuedorandom sequence to verify results.
 
 <hr>
 ```{r Question 3}
-with(mtcars, tapply(mpg, cyl, mean))
-
-sapply(split(mtcars$mpg, mtcars$cyl), mean)
-
-tapply(mtcars$mpg, mtcars$cyl, mean)
+set.seed(22)
 ```
 
 <hr>
 
-<font size="+2">4.  </font> Continuing with the 'mtcars' dataset from the previous Question, what is the absolute difference between the average horsepower of 4-cylinder cars and the average horsepower of 8-cylinder cars?
-
-(Please round your final answer to the nearest whole number. Only enter the numeric result and nothing else.)
+<font size="+2">4.  </font> Which function can be used to evaluate the inverse cumulative distribution function for the Poisson distribution?
 
 <hr>
 
 <font size="+1">
+<b>
 
-* 127
+* qpois
 
+</b>
 </font>
 
 <hr>
 
 #####Explanation:
 
-Using the built in looping tapply function to aggregate and then round/abs.
+See documentation ?qpois
 
-Self-explanatory
 ```{r Question 4}
-new <- tapply(mtcars$hp, mtcars$cyl, mean)
-round(abs(new[3]-new[1]))
 ```
 
 <hr>
 
-<font size="+2">5.  </font> If you run
+<font size="+2">5.  </font> What does the following code do?
 
 ```{r q5a}
-debug(ls)
+set.seed(10)
+x <- rep(0:1, each = 5)
+e <- rnorm(10, 0, 20)
+y <- 0.5 + 2 * x + e
 ```
-
-What happens when you next call the 'ls' function?
 
 <hr>
 
 <font size="+1">
+<b>
 
-* Execution of 'ls' will suspend at the beginning of the function and you will be in the browser.
+* Generate data from a Normal linear model
 
+</b>
 </font>
 
 <hr>
 
-#####Explanation:
-
-Debug walks through each block of code to identify errors and bugs.
-
-```{r Question 5}
-
+```{r Question 6}
 ```
+
+<hr>
+
+<font size="+2">6.  </font> What R function can be used to generate Binomial random variables?
+
+<hr>
+
+<font size="+1">
+<b>
+
+* rbinom
+
+</b>
+</font>
+
+<hr>
+
+
+<hr>
+
+<font size="+2">7.  </font> What aspect of the R runtime does the profiler keep track of when an R expression is evaluated?
+
+<hr>
+
+<font size="+1">
+<b>
+
+* the function call stack
+
+</b>
+</font>
+
+<hr>
+
+<font size="+2">8.  </font> Consider the following R code
+
+library(datasets)
+Rprof()
+fit <- lm(y ~ x1 + x2)
+Rprof(NULL)
+
+<hr>
+
+<font size="+1">
+<b>
+
+* 100%
+
+</b>
+</font>
+
+<hr>
+
+<font size="+2">9.  </font> When using 'system.time()', what is the user time?
+
+<hr>
+
+<font size="+1">
+<b>
+
+* It is the time spent by the CPU evaluating an expression
+
+</b>
+</font>
+
+<hr>
+
+<font size="+2">10.  </font> If a computer has more than one available processor and R is able to take advantage of that, then which of the following is true when using 'system.time()'?
+
+<hr>
+
+<font size="+1">
+<b>
+
+* Elapsed time may be smaller than user time
+
+</b>
+</font>
 
 <hr>
 
